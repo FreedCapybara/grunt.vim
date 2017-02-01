@@ -32,9 +32,13 @@ let s:dirname=expand('<sfile>:h:h')
 "
 
 " spawn helper, basic wrapper to :!
-function! s:Grunt(bang, args)
+function! s:grunt(bang, args)
   let cmd = 'grunt '.a:args
-  execute ':!'.cmd
+  if has("win32")
+    execute ':!start /B '.cmd
+  else
+    execute ':!'.cmd.' &'
+  endif
 endfunction
 
 " Set base path utility, for easier `:find`, super simplified here.
