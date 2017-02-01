@@ -32,7 +32,7 @@ let s:dirname=expand('<sfile>:h:h')
 "
 
 " spawn helper, basic wrapper to :!
-function! s:grunt(bang, args)
+function! s:Grunt(bang, args)
   let cmd = 'grunt '.a:args
   if has("win32")
     execute ':!start /B '.cmd
